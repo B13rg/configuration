@@ -1,0 +1,38 @@
+--Bash Commands--
+Ctrl-U : Delete Line
+Ctrl-W : Delete Word
+Ctrl-XX : Swap beteen start of line and cursor position
+Ctrl-A : Jump to start of line
+Ctrl-E : Jump to end of line
+Alt-Shift-# : Comment out line
+
+--Alias Commands--
+c : clear
+.. : Go up 1 directory
+... : Go up 3 directories
+.... : Go up 4 directories
+cd.. : cd ..
+cl : Change to directory and run ls
+l. : List Directories
+mkdir : Makes folder and all missing parent folders
+chtsht : Show this cheat sheet
+
+--Tmux Commands--
+Alt + z : Chord key
+Chord + - : Split Horizontally
+Chord + | : Split vertically
+Chord + z : Zoom in/out
+Chord + q : Identify panels
+Chord + # : Go to # Window
+Shift + Left/Right : Switch windows left/right
+Alt + Arrow Keys : Move Panels in direction
+
+
+--Vim Commands--
+w : Forward word
+b : Backward word
+o : Insert text on new line
+a : Append text to current position
+A : Append text to current line
+i : Insert text before current character position
+

@@ -1,0 +1,10 @@
+[user]
+	email = bbyers@apptio.com
+	name = bbyers
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+        interactive = auto
+	ui = true
+	pager = true

@@ -1,0 +1,17 @@
+" Enable mouse for normal mode
+set mouse=n
+
+
+filetype on
+filetype plugin on
+set history=700
+set cmdheight=2
+
+set number
+
+syntax on 
+set autoread
+set showmode
+set ignorecase
+set smartcase
+set smartindent
