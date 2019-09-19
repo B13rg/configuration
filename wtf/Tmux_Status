@@ -1,0 +1,2 @@
+#!/bin/bash
+tmux ls | awk '{print $1 " " $2 " " $3 " " $10 " " $11}'

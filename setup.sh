@@ -1,1 +1,2 @@
-apt update && apt install tmux htop
+apt update
+cat ./packages.txt | xargs apt -y install

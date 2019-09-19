@@ -1,0 +1,84 @@
+wtf:
+  colors:
+    background: black
+    border:
+      focusable: darkslateblue
+      focused: orange
+      normal: gray
+    checked: yellow
+    highlight:
+      fore: black
+      back: gray
+    rows:
+      even: yellow
+      odd: white
+  grid:
+    columns: [15,15,15,15]
+    rows: [12,8,12,7,7]
+  refreshInterval: 1
+  openFileUtil: "open"
+  mods:
+    server_times:
+      title: "Server Times"
+      type: clocks
+      colors:
+        rows:
+          even: "lightblue"
+          odd: "white"
+      enabled: true
+      locations:
+        Here : "America/Los_Angeles"
+        ALX  : "Australia/Sydney"
+        AMS  : "Europe/Amsterdam"
+        ASH  : "America/New_York"
+        FRA  : "Europe/Berlin"
+        TUK  : "America/Los_Angeles"
+      timeFormat: "15:04 -0700"
+      position:
+        top: 1
+        left: 1
+        height: 1
+        width: 3
+      refreshInterval: 30
+      sort: "alphabetical"
+    news:
+      type: hackernews
+      title: "HackerNews"
+      enabled: true
+      numberOfStories: 10
+      position:
+        top: 2
+        left: 0
+        height: 1
+        width: 4
+      storyType: top
+      refreshInterval: 900
+    weather:
+      type: prettyweather
+      enabled: true
+      city: "bellevue?Q"
+      position:
+        top: 3
+        left: 1
+        height: 1
+        width: 3
+    resources:
+      type: resourceusage
+      enabled: true
+      position:
+        top: 0
+        left: 0
+        height: 1
+        width: 4
+      refreshInterval: 2
+    tmuxpages:
+      type: cmdrunner
+      cmd: "/home/bbyers/.config/wtf/Tmux_Status"
+      #args: ["ls"]
+      enabled: true
+      position:
+        top: 4
+        left: 0
+        height: 1
+        width: 4
+      refreshInterval: 30

@@ -29,7 +29,7 @@ alias ....='cd ../../../../'
 alias rm='rm -I --preserve-root'
 
 # Show cheatsheet
-alias chtsht='less ~/cheatsheet.txt'
+alias chtsht='less ~/.cheatsheet.txt'
 
 # LESS man page colors (makes Man pages more readable).
 export LESS_TERMCAP_mb=$'\E[01;31m'
