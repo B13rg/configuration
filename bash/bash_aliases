@@ -1,9 +1,9 @@
 # Quick commands
 alias c='clear'
-alias l.='ls -d .* --color=auto'
-alias la='ls -alF --color=auto'
-alias ll='ls -lF --color=auto'
-alias ls='ls --color=auto'
+alias l.='ls -hd .* --color=auto'
+alias la='ls -alhF --color=auto'
+alias ll='ls -lhF --color=auto'
+alias ls='ls -h --color=auto'
 alias l='ls -CF'
 alias vi='vim'
 
@@ -22,8 +22,8 @@ alias diff='diff -syt'
 # Better cd commands
 alias cd..='cd ..'
 alias ..='cd ..'
-alias ...='cd ../../../'
-alias ....='cd ../../../../'
+alias ...='cd ../../'
+alias ....='cd ../../../'
 
 # Safer rm
 alias rm='rm -I --preserve-root'
