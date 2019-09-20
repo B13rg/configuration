@@ -15,9 +15,10 @@ my %filesHidden = (
 	vim => ["vim/vimrc","vim/indent/python.vim","vim/indent/yaml.vim"],
 	other => ["cheatsheet.txt"],
 );
+
 if($#ARGV+1==0) {
 	foreach my $dir (keys(%filesHidden)) {
-		applyList(@{$filesHidden{$dir}});
+		applyList($dir,@{$filesHidden{$dir}});
 	}
 }else {
 	foreach (@ARGV){
@@ -37,7 +38,6 @@ sub applyList {
 	}
 }
 
-
 sub applyHiddenFiles {
 	my $directory = shift;
 	my $file = shift;
@@ -47,5 +47,4 @@ sub applyHiddenFiles {
 		copy ("$source_dir/$directory/$file", "$target_dir/.$file");
 	}
 }
-
 
