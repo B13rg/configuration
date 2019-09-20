@@ -12,16 +12,31 @@ my %filesHidden = (
 	bash => ["bash_aliases","bashrc"],
 	git => ["gitconfig"],
 	tmux => ["tmux.conf","tmux/session1"],
-	vim => ["viminfo","vim/vimrc","vim/indent/python.vim","vim/indent/yaml.vim"],
+	vim => ["vim/vimrc","vim/indent/python.vim","vim/indent/yaml.vim"],
 	other => ["cheatsheet.txt"],
 );
+if($#ARGV+1==0) {
+	foreach my $dir (keys(%filesHidden)) {
+		applyList(@{$filesHidden{$dir}});
+	}
+}else {
+	foreach (@ARGV){
+		if($_ eq "-bash") {applyList("bash", @{$filesHidden{bash}});}
+		elsif($_ eq "-git") {applyHiddenFiles("git", @{$filesHidden{git}});}
+		elsif($_ eq "-tmux")  {applyHiddenFiles("tmux", @{$filesHidden{tmux}});}
+		elsif($_ eq "-vim") {applyHiddenFiles("vim", @{$filesHidden{vim}});}
+		else {exit}
+	}
+}
 
-foreach my $dir (keys(%filesHidden)) {
-	print "Moving files for $dir\n";
-	foreach (@{$filesHidden{$dir}}) {
+sub applyList {
+	my $dir = shift;
+	my @list = shift;
+	foreach (@list) {
 		applyHiddenFiles($dir, $_);
 	}
 }
+
 
 sub applyHiddenFiles {
 	my $directory = shift;

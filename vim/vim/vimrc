@@ -15,6 +15,10 @@ set showmode
 set ignorecase
 set smartcase
 set smartindent
+
+set tabstop=4
+
+
 " center view on the search result
 noremap n nzz
 noremap N Nzz
