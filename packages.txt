@@ -18,3 +18,4 @@ wget
 whois
 cowsay
 fortune
+lolcat

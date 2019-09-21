@@ -139,10 +139,7 @@ PERL_LOCAL_LIB_ROOT="/home/bbyers/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_
 PERL_MB_OPT="--install_base \"/home/bbyers/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/bbyers/perl5"; export PERL_MM_OPT;
 
-if [ -x "$(command -v fortune)" ]; then
-	if [ -x "$(command -v cowsay)" ]; then
-		fortune | cowsay -pn
-	else
-		fortune
-	fi
+if [ -x "$(command -v fortune)" ] && [ -x "$(command -v cowsay)" ] && [ -x "$(command -v ddate)" ] && [ -x "$(command -v lolcat)" ]; then
+	fortune | cowsay -pn | lolcat
+	ddate | lolcat
 fi
