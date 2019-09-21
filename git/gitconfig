@@ -5,6 +5,8 @@
 	diff = auto
 	status = auto
 	branch = auto
-        interactive = auto
+    interactive = auto
 	ui = true
 	pager = true
+[push]
+    default = simple

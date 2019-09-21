@@ -1,5 +1,6 @@
 --Bash Commands--
-Ctrl-U : Delete Line
+Ctrl-U : Delete before cursor
+Ctrl-K : Delete after cursor
 Ctrl-W : Delete Word
 Ctrl-XX : Swap beteen start of line and cursor position
 Ctrl-A : Jump to start of line

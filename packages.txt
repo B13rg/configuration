@@ -16,3 +16,5 @@ tree
 vim
 wget
 whois
+cowsay
+fortune
