@@ -4,8 +4,10 @@ alias l.='ls -hd .* --color=auto'
 alias la='ls -alhF --color=auto'
 alias ll='ls -lhF --color=auto'
 alias ls='ls -h --color=auto'
+alias lt='ls -lhart --color=auto'
 alias l='ls -CF'
 alias vi='vim'
+alias svim='sudo vim'
 
 alias dirs='dirs -v'
 
@@ -33,6 +35,7 @@ alias rm='rm -I --preserve-root'
 # Show cheatsheet
 alias chtsht='less ~/.cheatsheet.txt'
 
+alias less='less -FRX'
 # LESS man page colors (makes Man pages more readable).
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
@@ -41,3 +44,5 @@ export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
+
+alias reload='. ~/.bash_aliases'
