@@ -19,3 +19,4 @@ whois
 cowsay
 fortune
 lolcat
+screenfetch
