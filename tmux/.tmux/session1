@@ -1,8 +1,0 @@
-new-window
-split-window -h -p 25
-split-window -v -p 25
-select-pane -t 2
-clock-mode
-select-pane -t 1
-send-keys "htop" Enter
-select-pane -t 0
