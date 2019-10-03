@@ -42,7 +42,7 @@ sub RunList {
 	open(DATA, '<', $configFile);
 	my @files = <DATA>;
 	close DATA;
-	foreach $line (@files) {
+	foreach my $line (@files) {
 		if (grep { $line =~ m/^$_/ } @typeList) { copyFile( split /,/,$line ) }
 	}
 }
