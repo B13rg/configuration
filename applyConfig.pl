@@ -7,47 +7,56 @@ use File::Path;
 
 use Data::Dumper;
 
-my $source_dir = ".";
-my $target_dir = "/home/bbyers";
-
-my %filesHidden = (
-	bash => ["bash_aliases","bashrc"],
-	git => ["gitconfig"],
-	tmux => ["tmux.conf","tmux/session1"],
-	vim => ["vim/vimrc","vim/indent/python.vim","vim/indent/yaml.vim"],
-	wtfutil=> ["config/wtf/config.yml","config/wtf/Tmux_Status"],
-	other => ["cheatsheet.txt"],
-);
+my $source_dir = "./";
+my $target_dir = $ENV{'HOME'} . '/';
+my $configFile = "./config/filePaths.csv";
 
 if($#ARGV+1==0) {
-	foreach my $dir (keys(%filesHidden)) {
-		applyList($dir,@{ $filesHidden{$dir} });
-	}
+	RunAll();
 }else {
+	my @types;
 	foreach (@ARGV){
-		if($_ eq "-bash") {applyList("bash", @{$filesHidden{bash}});}
-		elsif($_ eq "-git") {applyHiddenFiles("git", @{$filesHidden{git}});}
-		elsif($_ eq "-tmux")  {applyHiddenFiles("tmux", @{$filesHidden{tmux}});}
-		elsif($_ eq "-vim") {applyHiddenFiles("vim", @{$filesHidden{vim}});}
+		if($_ eq "-bash") { push @types, 'bash'; }
+		elsif($_ eq "-git") { push @types, 'git'; }
+		elsif($_ eq "-tmux")  { push @types, 'tmux'; }
+		elsif($_ eq "-vim") { push @types, 'vim'; }
+		elsif($_ eq "-ssh") { push @types, 'ssh'; }
 		else {exit}
 	}
+	RunList( @types );
 }
 
-sub applyList {
-	my $dir = shift;
-	my @list = @_;
-	foreach my $file (@list) {
-		applyHiddenFiles($dir, $file);
+sub RunAll {
+	open(DATA, '<', $configFile);
+	my @lines = <DATA>;
+	close DATA;
+	foreach (@lines) {
+		if ($_ =~ m/^#/ || $_ =~ /^\s*$/) { next; }	# Starts with hash or is blank
+		copyFile( split /,/,$_ );
+	}
+	print "Complete: run `reload` to apply bash changes\n"
+}
+
+sub RunList {
+	my @typeList = @_;
+	open(DATA, '<', $configFile);
+	my @files = <DATA>;
+	close DATA;
+	foreach $line (@files) {
+		if (grep { $line =~ m/^$_/ } @typeList) { copyFile( split /,/,$line ) }
 	}
 }
 
-sub applyHiddenFiles {
-	my $repoLoc = shift;
-	my $file = shift;
-	if(-f "$source_dir/$repoLoc/$file") {
-		print "Moving $source_dir/$repoLoc/$file to $target_dir/.$file\n";
-		mkpath(dirname("$target_dir/.$file")) if not -d dirname("$target_dir/.$file");
-		copy ("$source_dir/$repoLoc/$file", "$target_dir/.$file");
+sub copyFile {
+	my $src = shift;
+	my $dest = shift;
+	$src = $source_dir . $src;
+	$dest = $target_dir . $dest;
+	chomp $src;
+	chomp $dest;
+	if(-f "$src") {
+		print "Moving $src to $dest\n";
+		mkpath(dirname("$dest")) if not -d dirname("$dest");
+		copy ("$src", "$dest");
 	}
 }
-
