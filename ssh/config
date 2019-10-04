@@ -46,13 +46,13 @@ Host datadropEU
 	PermitLocalCommand=yes
 	LocalCommand="sshColor" 'bg=colour17'
 
-Host *-srv.papt.to
+Host *-srv-*.papt.to
 	PermitLocalCommand=yes
 	LocalCommand="sshColor" 'bg=colour23'
 	User bbyers
 	IdentityFile ~/.ssh/id_rsa
 
-Host *-srv.dapt.to
+Host *-srv-*.dapt.to
 	PermitLocalCommand=yes
 	LocalCommand="sshColor" 'bg=colour29'
 	User bbyers

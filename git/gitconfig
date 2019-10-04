@@ -10,3 +10,5 @@
 	pager = true
 [push]
     default = simple
+[core]
+	editor = "vim"
