@@ -4,7 +4,8 @@ bash/bashrc,.bashrc
 
 git/gitconfig,.gitconfig
 
-tmux/tmux.conf,.tmux,conf
+tmux/tmux.conf,.tmux.conf
+tmux/tmux.remote.conf,.tmux.remote.conf
 tmux/sessions/session1,.tmux/session1
 tmux/sshColor.sh,.local/bin/sshColor
 
