@@ -8,6 +8,7 @@ tmux/tmux.conf,.tmux.conf
 tmux/tmux.remote.conf,.tmux.remote.conf
 tmux/sessions/session1,.tmux/session1
 tmux/sshColor.sh,.local/bin/sshColor
+tmux/windowName.pl,.tmux/windowName.pl
 
 vim/vimrc,.vim/vimrc
 vim/indent/python.vim,.vim/indent/python.vim
