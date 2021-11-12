@@ -13,7 +13,7 @@ alias dirs='dirs -v'
 
 # grepy stuff
 alias grep='grep --color=auto'
-alias egrep='egrep --color=autp'
+alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
 # Make all parent directories
@@ -36,6 +36,8 @@ alias rm='rm -I --preserve-root'
 alias chtsht='less ~/.cheatsheet.txt'
 
 alias less='less -FRX'
+alias docker-compose='dc'
+
 # LESS man page colors (makes Man pages more readable).
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'

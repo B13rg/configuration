@@ -16,9 +16,18 @@ set ignorecase
 set smartcase
 set smartindent
 
-set tabstop=4
+set tabstop=
+
+"Autocomplete
+set wildmode=longest,list,full
+set wildmenu
+
+tabstop=3
 
 
 " center view on the search result
 noremap n nzz
 noremap N Nzz
+
+"Rainbow Brackets
+let g:rainbow_active = 1
