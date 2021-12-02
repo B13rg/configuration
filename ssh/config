@@ -1,71 +1,20 @@
-Host ssp
-	HostName tukp-selfserveprocessor-1.papt.to
-	User bbyers
-	IdentityFile ~/.ssh/id_rsa
-	ForwardAgent yes
-	PermitLocalCommand=yes
-	LocalCommand="sshColor" 'bg=colour52'
-Host ssd
-	HostName tukd-selfserveprocessor-1.dapt.to
-	User bbyers
-	IdentityFile ~/.ssh/id_rsa
-	ForwardAgent yes
-Host ssdev
-	HostName tukd-selfservebbyers-1.dapt.to
-	User bbyers
-	IdentityFile ~/.ssh/id_rsa
-	ForwardAgent yes
-Host tukpup1
-	HostName tukp-puppetserver-1.papt.to
-	User bbyers
-	IdentityFile ~/.ssh/id_rsa
-	PermitLocalCommand=yes
-	LocalCommand="sshColor" 'bg=colour58'
-Host tukpup2
-	HostName tukp-puppetserver-2.papt.to
-	User bbyers
-	IdentityFile ~/.ssh/id_rsa
-	PermitLocalCommand=yes
-	LocalCommand="sshColor" 'bg=colour58'
-Host datadropUS
-	HostName tukp-datadrop-2.papt.to
-	User bbyers
-	IdentityFile ~/.ssh/id_rsa
-	PermitLocalCommand=yes
-	LocalCommand="sshColor" 'bg=colour17'
-Host datadropAU
-	HostName alxp-datadrop-2.papt.to
-	User bbyers
-	IdentityFile ~/.ssh/id_rsa
-	PermitLocalCommand=yes
-	LocalCommand="sshColor" 'bg=colour17'
-Host datadropEU
-	HostName amsp-datadrop-2.papt.to
-	User bbyers
-	IdentityFile ~/.ssh/id_rsa
-	PermitLocalCommand=yes
-	LocalCommand="sshColor" 'bg=colour17'
+-- Host <name/id>
+-- 	HostName <server url or ip>
+-- 	User <username>
+-- 	IdentityFile <path to private key>
+-- 	ForwardAgent yes
+-- 	PermitLocalCommand=yes
+-- 	LocalCommand="sshColor" 'bg=colour52'
 
-Host *-srv-*.papt.to
-	PermitLocalCommand=yes
-	LocalCommand="sshColor" 'bg=colour23'
-	User bbyers
-	IdentityFile ~/.ssh/id_rsa
+-- Host datadropEU
+-- 	HostName amsp-datadrop-2.papt.to
+-- 	User bbyers
+-- 	IdentityFile ~/.ssh/id_rsa
+-- 	PermitLocalCommand=yes
+-- 	LocalCommand="sshColor" 'bg=colour17'
 
-Host *-srv-*.dapt.to
-	PermitLocalCommand=yes
-	LocalCommand="sshColor" 'bg=colour29'
-	User bbyers
-	IdentityFile ~/.ssh/id_rsa
-
-Host *.papt.to
-	PermitLocalCommand=yes
-	LocalCommand="sshColor" 'bg=colour94'
-	User bbyers
-	IdentityFile ~/.ssh/id_rsa
-
-Host *.dapt.to
-	PermitLocalCommand=yes
-	LocalCommand="sshColor" 'bg=colour60'
-	User bbyers
-	IdentityFile ~/.ssh/id_rsa
+-- Host *-srv-*.papt.to
+-- 	PermitLocalCommand=yes
+-- 	LocalCommand="sshColor" 'bg=colour23'
+-- 	User bbyers
+-- 	IdentityFile ~/.ssh/id_rsa

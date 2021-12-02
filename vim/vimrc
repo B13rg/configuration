@@ -16,9 +16,12 @@ set ignorecase
 set smartcase
 set smartindent
 
-set tabstop=4
+set tabstop=3
 
 
 " center view on the search result
 noremap n nzz
 noremap N Nzz
+
+inoremap <Up> <C-O>gk
+inoremap <Down> <C-O>gj
