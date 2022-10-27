@@ -23,5 +23,5 @@ set tabstop=3
 noremap n nzz
 noremap N Nzz
 
-inoremap <Up> <C-O>gk
-inoremap <Down> <C-O>gj
+"Rainbow Brackets
+let g:rainbow_active = 1

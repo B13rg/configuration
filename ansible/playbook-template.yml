@@ -1,0 +1,55 @@
+---
+# https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html
+- hosts: all
+  # become: true
+  # gather_facts: false
+  vars_file:
+    - host_vars/main.yml
+    - group_vars/main.yml
+  vars:
+    # Common vars
+    # {{ inventory_hostname }}
+    # {{ ansible_hostname }}
+    #
+    #
+  tasks:
+    - debug:
+        msg: task1
+
+    - name: Apply conditional to all imported tasks
+      import_tasks: stuff.yaml
+      when: hostvar is defined
+    
+    - name: Setup user block
+      block:
+        - name : "Create a user"
+          user:
+              name: "{{item.name}}" 
+              create_home: yes 
+              group: "{{item.group}}" 
+              state: present 
+              ssh_key_file: .ssh/id_rsa 
+              ssh_key_type: rsa 
+          with_items: 
+            - { name: 'sarav', group: 'adminteam'}
+            - { name: 'hanu', group: 'devopsteam'}
+
+        - name: "Copy the authorized key file from"
+          authorized_key:
+            user: "{{item.name}}"
+            state: "{{item.userstate}}"
+            key: "{{ lookup('file', '{{ item.key }}')}}"
+          with_items:
+            - { name: 'sarav', key: 'sarav.pub', userstate: 'present'}
+            - { name: 'hanu', key: 'hanu.pub', userstate: 'present'} 
+      become: true
+      become_user: other_user
+      ignore_errors: yes
+      rescue:
+        - name: Print when errors
+          ansible.builtin.debug:
+            msg: 'I caught an error, can do stuff here to fix it, :-)'
+      always:
+        - name: Always do this
+          ansible.builtin.debug:
+            msg: "This always executes"
