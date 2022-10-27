@@ -1,11 +1,11 @@
 # Quick commands
 alias c='clear'
-alias l.='ls -hd .* --color=auto'
-alias la='ls -alhF --color=auto'
-alias ll='ls -lhF --color=auto'
-alias ls='ls -h --color=auto'
-alias lt='ls -lhart --color=auto'
-alias l='ls -CF'
+alias l.='ls  --human-readable --group-directories-first .* --color=auto'
+alias la='ls -al --classify --human-readable --color=auto'
+alias ll='ls --classify --color=auto  -lX --almost-all --human-readable --group-directories-first'
+alias ls='ls --human-readable --color=auto'
+alias lt='ls -lart --human-readable --color=auto'
+alias l='ls -C --classify --color=auto  -lX --almost-all --human-readable --group-directories-first'
 alias vi='vim'
 alias svim='sudo vim'
 
@@ -21,7 +21,7 @@ alias fgrep='fgrep --color=auto'
 alias mkdir='mkdir -pv'
 
 # Better diff
-alias diff='diff -syt'
+alias diff='diff --report-identical-files --side-by-side --initial-tab'
 
 # Better cd commands
 alias cd..='cd ..'
@@ -46,3 +46,5 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 alias reload='. ~/.bash_aliases'
+
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'

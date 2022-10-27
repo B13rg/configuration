@@ -1,8 +1,0 @@
-sudo facter -p | grep virtual_hostnode
-systemctl |awk '/failed/&&/vstorage/' | awk '{print $2}' # Get list of failed vstorage services
-for i in `systemctl | awk '/failed/&&/vstorage/' | awk '{print $2}'`; do systemctl disable $i; systemctl reset-failed $i; done; systemctl daemon-reload # Take that list and reset-failed and disable each
-sudo puppet agent -t --server tukp-puppetserver-1.papt.to --noop --environment=
-du -ahx --max-depth=1 ./ | sort -h
-sudo /sbin/logrotate /etc/logrotate.conf -f
-sudo find /run/systemd/system -name "session-*.scope" -mtime +3 -delete && sudo systemctl daemon-reload; sudo puppet agent -t
-sudo puppet agent -t

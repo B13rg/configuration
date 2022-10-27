@@ -12,3 +12,6 @@
     default = simple
 [core]
 	editor = "vim"
+
+[includeIf "gitdir:~/otherdir/"]
+		  path = ~/otherdir/.gitconfig-otherdir

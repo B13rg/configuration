@@ -1,0 +1,13 @@
+# Host <name/id>
+# 	HostName <server url or ip>
+# 	User <username>
+# 	IdentityFile <path to private key>
+# 	ForwardAgent yes
+# 	PermitLocalCommand=yes
+# 	LocalCommand="sshColor" 'bg=colour52'
+
+Host easy-name
+	HostName ip-or-hostname.com
+	User username
+	IdentityFile ~/.ssh/id_rsa.pub
+	PermitLocalCommand=yes
