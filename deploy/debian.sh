@@ -10,7 +10,6 @@ htop \
 less \
 perl \
 perl-base \
-perl-modules-5.22 \
 powerline \
 python3 \
 readline-common \

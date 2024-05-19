@@ -7,7 +7,6 @@ vars:
   DIFF_CMD: 'diff --color -y --suppress-common-lines'
 
 tasks:
-
   setup:
     cmds:
       - brew install tpl go-task
@@ -46,6 +45,7 @@ tasks:
       - cp config/tmux/tmux/sshColor.sh ~/.tmux
       - cp config/tmux/tmux/windowName.pl ~/.tmux
       - cp config/tmux/tmux/session1 ~/.tmux
+      - cp config/tmux/tmux/sessionroot ~/.tmux
       - cp config/tmux/tmux.conf ~/.tmux.conf
       - cp config/tmux/tmux.remote.conf ~/.tmux.remote.conf
     interactive: true

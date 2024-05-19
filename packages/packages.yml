@@ -5,6 +5,10 @@ packages:
         "go-task",
         ''
     ]
+    pkg: [
+        # pkg install <package>
+        "openssh"
+    ]
     apt: [
         "ansible",
         "curl",
@@ -14,7 +18,6 @@ packages:
         "less",
         "perl",
         "perl-base",
-        "perl-modules-5.22",
         "powerline",
         "python3",
         "readline-common",
