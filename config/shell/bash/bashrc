@@ -153,19 +153,27 @@ alias l='ls -C --classify --color=auto  -lX --almost-all --human-readable --grou
 alias vi='vim'
 alias svim='sudo vim'
 alias dirs='dirs -v'
+# grepy stuff
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
+# Make all parent directories
+# Example: `mkdir /parent/child/foo`
 alias mkdir='mkdir -pv'
+# Better diff
 alias diff='diff --report-identical-files --side-by-side --initial-tab'
+# Better cd commands
 alias cd..='cd ..'
 alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
+# Safer rm
 alias rm='rm -I --preserve-root'
+# Show cheatsheet
 alias chtsht='less ~/.cheatsheet.txt'
 alias less='less -FRX'
 alias docker-compose='dc'
+# LESS man page colors (makes Man pages more readable).
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
 export LESS_TERMCAP_me=$'\E[0m'
@@ -173,4 +181,4 @@ export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
-alias reload='. ~/.bash_aliases'
+alias reload='exec $SHELL'

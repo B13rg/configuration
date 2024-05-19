@@ -81,12 +81,12 @@ tasks:
 
   bash-diff:
     cmds:
-      - cmd: '{{.DIFF_CMD}} ~/.gitconfig ./config/git/gitconfig'
+      - cmd: '{{.DIFF_CMD}} ~/.bashrc ./config/shell/bash/bashrc'
         ignore_error: true
 
   zsh-diff:
     cmds:
-      - cmd: '{{.DIFF_CMD}} ~/.gitconfig ./config/git/gitconfig'
+      - cmd: '{{.DIFF_CMD}} ~/.zshrc ./config/shell/zsh/zshrc'
         ignore_error: true
 
   debian:
