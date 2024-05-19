@@ -1,3 +1,5 @@
 du -ahx --max-depth=1 ./ | sort -h
 du -sh /* | sort -h
+df -h
+free -h
 sudo /sbin/logrotate /etc/logrotate.conf -f

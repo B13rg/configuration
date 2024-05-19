@@ -35,6 +35,7 @@ tasks:
       - task: tmux-diff
       - task: vim-diff
       - task: git-diff
+      - task: scripts-diff
 
   tmux:
     cmds:
@@ -44,7 +45,7 @@ tasks:
       - cp config/tmux/tmux/loadClipboard.sh ~/.tmux
       - cp config/tmux/tmux/sshColor.sh ~/.tmux
       - cp config/tmux/tmux/windowName.pl ~/.tmux
-      - cp config/tmux/tmux/tmux/session1 ~/.tmux
+      - cp config/tmux/tmux/session1 ~/.tmux
       - cp config/tmux/tmux.conf ~/.tmux.conf
       - cp config/tmux/tmux.remote.conf ~/.tmux.remote.conf
     interactive: true
@@ -88,6 +89,16 @@ tasks:
     cmds:
       - cmd: '{{.DIFF_CMD}} ~/.zshrc ./config/shell/zsh/zshrc'
         ignore_error: true
+
+  scripts-diff:
+    cmds:
+      - cmd: '{{.DIFF_CMD}} ~/.local/bin/scripts ./config/scripts/'
+        ignore_error: true
+  
+  scripts:
+    cmds:
+      - mkdir -p ~/.local/bin/scripts
+      - cp -r ./config/scripts/* ~/.local/bin/scripts
 
   debian:
     cmds:
