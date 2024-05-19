@@ -1,6 +1,6 @@
 [user]
-	email = bbyers@apptio.com
-	name = bbyers
+	email = neemo@null.com
+	name = neemo
 [color]
 	diff = auto
 	status = auto
@@ -15,3 +15,8 @@
 
 [includeIf "gitdir:~/otherdir/"]
 		  path = ~/otherdir/.gitconfig-otherdir
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

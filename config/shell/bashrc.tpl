@@ -129,6 +129,11 @@ function cl(){
 	cd "$@" && ls
 }
 
+{%- if wsl %}
+# Open  Xwindow on wsl
+export DISPLAY=localhost:0.0
+{%- endif %}
+
 export ANSIBLE_NOCOWS=1
 
 PATH="/home/bbyers/perl5/bin${PATH:+:${PATH}}"; export PATH;
@@ -143,34 +148,6 @@ if [ -x "$(command -v fortune)" ] && [ -x "$(command -v cowsay)" ] && [ -x "$(co
 fi
 
 ## Aliases
-alias c='clear'
-alias l.='ls  --human-readable --group-directories-first .* --color=auto'
-alias la='ls -al --classify --human-readable --color=auto'
-alias ll='ls --classify --color=auto  -lX --almost-all --human-readable --group-directories-first'
-alias ls='ls --human-readable --color=auto'
-alias lt='ls -lart --human-readable --color=auto'
-alias l='ls -C --classify --color=auto  -lX --almost-all --human-readable --group-directories-first'
-alias vi='vim'
-alias svim='sudo vim'
-alias dirs='dirs -v'
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias mkdir='mkdir -pv'
-alias diff='diff --report-identical-files --side-by-side --initial-tab'
-alias cd..='cd ..'
-alias ..='cd ..'
-alias ...='cd ../../'
-alias ....='cd ../../../'
-alias rm='rm -I --preserve-root'
-alias chtsht='less ~/.cheatsheet.txt'
-alias less='less -FRX'
-alias docker-compose='dc'
-export LESS_TERMCAP_mb=$'\E[01;31m'
-export LESS_TERMCAP_md=$'\E[01;31m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;44;33m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;32m'
-alias reload='. ~/.bash_aliases'
+{%- for alias in aliases %}
+{{alias}}
+{%- endfor %}

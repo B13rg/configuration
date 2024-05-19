@@ -107,3 +107,8 @@ source $ZSH/oh-my-zsh.sh
 
 
 export ANSIBLE_NOCOWS=1
+
+## Aliases
+{%- for alias in aliases %}
+{{alias}}
+{%- endfor %}

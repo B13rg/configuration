@@ -4,7 +4,7 @@ version: '3'
 
 vars:
   GREETING: Hello, World!
-  DIFF_CMD: 'diff --color -y'
+  DIFF_CMD: 'diff --color -y --suppress-common-lines'
 
 tasks:
 
@@ -15,6 +15,14 @@ tasks:
   template:
     cmds:
       - tpl -e --yaml=./packages/packages.yml ./packages/debian.sh.tpl > ./deploy/debian.sh
+      - task: template-shell
+  
+  template-shell:
+    cmds:
+      - mkdir -p ./config/shell/bash/
+      - mkdir -p ./config/shell/zsh/
+      - tpl -e --yaml=./config/shell/shell.yml ./config/shell/bashrc.tpl > ./config/shell/bash/bashrc
+      - tpl -e --yaml=./config/shell/shell.yml ./config/shell/zshrc.tpl > ./config/shell/zsh/zshrc
 
   default:
     cmds:
@@ -24,29 +32,63 @@ tasks:
   diff:
     ignore_error: true
     cmds:
-      - diff --color ~/.tmux/ config/tmux/tmux
-      - diff --color ~/.tmux.conf config/tmux/tmux.conf
-      - diff --color ~/.tmux.remote.conf config/tmux/tmux.remote.conf
+      - task: tmux-diff
+      - task: vim-diff
+      - task: git-diff
 
   tmux:
     cmds:
-      - mkdir -p ~/.tmux
-      - cmd: diff --color ~/.tmux/ ./config/tmux/tmux
-        ignore_error: true
+      - task: tmux-diff
+      - mkdir -p ~/.tmux      
       - cp config/tmux/tmux/clipboard.txt ~/.tmux
       - cp config/tmux/tmux/loadClipboard.sh ~/.tmux
       - cp config/tmux/tmux/sshColor.sh ~/.tmux
       - cp config/tmux/tmux/windowName.pl ~/.tmux
       - cp config/tmux/tmux/tmux/session1 ~/.tmux
-      - cmd: diff --color ~/.tmux.conf config/tmux/tmux.conf
-        ignore_error: true
-      - cmd: diff --color ~/.tmux.remote.conf config/tmux/tmux.remote.conf
-        ignore_error: true
       - cp config/tmux/tmux.conf ~/.tmux.conf
       - cp config/tmux/tmux.remote.conf ~/.tmux.remote.conf
-      
     interactive: true
+
+  tmux-diff:
+    cmds:
+      - cmd: '{{.DIFF_CMD}} ~/.tmux/ ./config/tmux/tmux'
+        ignore_error: true
+      - cmd: '{{.DIFF_CMD}} ~/.tmux.conf config/tmux/tmux.conf'
+        ignore_error: true
+      - cmd: '{{.DIFF_CMD}} ~/.tmux.remote.conf config/tmux/tmux.remote.conf'
+        ignore_error: true
   
+  vim:
+    cmds:
+      - task: vim-diff
+      - mkdir -p ~/.vim/indent
+      - cp config/vim/vimrc ~/.vimrc
+
+  vim-diff:
+    cmds:
+      - cmd: '{{.DIFF_CMD}} ~/.vimrc ./config/vim/vimrc'
+        ignore_error: true
+
+  git:
+    cmds:
+      - task: git-diff
+      - cp config/git/gitconfig ~/.gitconfig
+
+  git-diff:
+    cmds:
+      - cmd: '{{.DIFF_CMD}} ~/.gitconfig ./config/git/gitconfig'
+        ignore_error: true
+
+  bash-diff:
+    cmds:
+      - cmd: '{{.DIFF_CMD}} ~/.gitconfig ./config/git/gitconfig'
+        ignore_error: true
+
+  zsh-diff:
+    cmds:
+      - cmd: '{{.DIFF_CMD}} ~/.gitconfig ./config/git/gitconfig'
+        ignore_error: true
+
   debian:
     cmds:
       - asd

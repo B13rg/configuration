@@ -1,20 +1,3 @@
-# Source Path, Destination Path
-bash/bash_aliases,.bash_aliases
-bash/bashrc,.bashrc
-
-git/gitconfig,.gitconfig
-
-tmux/tmux.conf,.tmux.conf
-tmux/tmux.remote.conf,.tmux.remote.conf
-tmux/sessions/session1,.tmux/session1
-tmux/sshColor.sh,.local/bin/sshColor
-tmux/windowName.pl,.tmux/windowName.pl
-tmux/clipboard.txt,.tmux/clipboard.txt
-tmux/loadClipboard.sh,.tmux/loadClipboard.sh
-
-vim/vimrc,.vim/vimrc
-vim/indent/python.vim,.vim/indent/python.vim
-vim/indent/yaml.vim,.vim/indent/python.vim
 
 wtf/config/wtf/config.yml,.config/wtf/config.yml
 wtf/config/wtf/Tmux_Status,.local/bin/TmuxStatus
