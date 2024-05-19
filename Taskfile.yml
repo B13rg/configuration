@@ -1,0 +1,53 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+  DIFF_CMD: 'diff --color -y'
+
+tasks:
+
+  setup:
+    cmds:
+      - brew install tpl go-task
+
+  template:
+    cmds:
+      - tpl -e --yaml=./packages/packages.yml ./packages/debian.sh.tpl > ./deploy/debian.sh
+
+  default:
+    cmds:
+      - echo "{{.GREETING}}"
+    silent: true
+
+  diff:
+    ignore_error: true
+    cmds:
+      - diff --color ~/.tmux/ config/tmux/tmux
+      - diff --color ~/.tmux.conf config/tmux/tmux.conf
+      - diff --color ~/.tmux.remote.conf config/tmux/tmux.remote.conf
+
+  tmux:
+    cmds:
+      - mkdir -p ~/.tmux
+      - cmd: diff --color ~/.tmux/ ./config/tmux/tmux
+        ignore_error: true
+      - cp config/tmux/tmux/clipboard.txt ~/.tmux
+      - cp config/tmux/tmux/loadClipboard.sh ~/.tmux
+      - cp config/tmux/tmux/sshColor.sh ~/.tmux
+      - cp config/tmux/tmux/windowName.pl ~/.tmux
+      - cp config/tmux/tmux/tmux/session1 ~/.tmux
+      - cmd: diff --color ~/.tmux.conf config/tmux/tmux.conf
+        ignore_error: true
+      - cmd: diff --color ~/.tmux.remote.conf config/tmux/tmux.remote.conf
+        ignore_error: true
+      - cp config/tmux/tmux.conf ~/.tmux.conf
+      - cp config/tmux/tmux.remote.conf ~/.tmux.remote.conf
+      
+    interactive: true
+  
+  debian:
+    cmds:
+      - asd
+

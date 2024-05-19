@@ -1,0 +1,61 @@
+packages: 
+    brew: [
+        "pyenv",
+        "tpl",
+        "go-task",
+        ''
+    ]
+    apt: [
+        "ansible",
+        "curl",
+        "git",
+        "hostname",
+        "htop",
+        "less",
+        "perl",
+        "perl-base",
+        "perl-modules-5.22",
+        "powerline",
+        "python3",
+        "readline-common",
+        "tmux",
+        "traceroute",
+        "tree",
+        "vim",
+        "wget",
+        "whois",
+        "cowsay",
+        "fortune",
+        "lolcat",
+        "neofetch",
+        "colordiff",
+        "yq",
+        "net-tools",
+        "wireguard",
+        "jq",
+        "cryptsetup"
+    ]
+    # Arch
+    pacman: [
+        "base",
+        "linux",
+        "linux-firmware ",
+        "vim",
+        "btrfs-progs",
+        "grub",
+        "grub-btrfs",
+        "efibootmgr",
+        "base-devel",
+        "linux-headers",
+        "networkmanager",
+        "network-manager-applet",
+        "wpa_supplicant",
+        "dialog",
+        "os-prober",
+        "mtools",
+        "dosfstools",
+        "reflector",
+        "git",
+        "cups",
+        "base-devel"
+    ]

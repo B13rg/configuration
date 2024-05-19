@@ -1,2 +1,3 @@
 du -ahx --max-depth=1 ./ | sort -h
+du -sh /* | sort -h
 sudo /sbin/logrotate /etc/logrotate.conf -f
