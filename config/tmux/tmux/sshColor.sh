@@ -1,4 +1,23 @@
-#/bin/sh
+#!/bin/sh
+
+# In ssh config:
+# PermitLocalCommand=yes
+# LocalCommand="sshColor.sh" "<param>"
+#
+# Examples:
+#  sshColor.sh bg=colour16
+#  sshColor.sh bg=colour52
+#  sshColor.sh bg=default
+#
+# Good colors: 16, 17, 23, 52, 53, 233, 234
+#
+# View available colors:
+# for i in {0..255}; do
+#  printf '\x1b[38;5;%dmcolour%d\x1b[0m\n' $i $i
+# done
+#
+
+
 
 [ -z "$TMUX_PANE" ] && exit
 [ "$#" -eq 1 ] || exit 1
